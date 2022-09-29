@@ -1,7 +1,8 @@
 package org.sio.slam.devine
 
-import org.junit.jupiter.api.Test
 
+
+import org.junit.Test
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.fail
 import org.sio.slam.devine.core.Carte
