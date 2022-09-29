@@ -4,10 +4,7 @@ import org.sio.slam.devine.core.Carte
 import org.sio.slam.devine.enum.CouleurCarte
 import org.sio.slam.devine.enum.NomCarte
 
-/**
- * Création d'un paquet de 32 cartes
- * TODO Création d'un paquet de 32 cartes à implémenter (de 7 à AS)
- */
+/*** Création d'un paquet de 32 cartes ***/
 fun createJeu32Cartes() : List<Carte> {
     return listOf(
         Carte(NomCarte.DIX, CouleurCarte.PIQUE),
@@ -19,7 +16,6 @@ fun createJeu32Cartes() : List<Carte> {
         Carte(NomCarte.ROI,CouleurCarte.PIQUE),
         Carte(NomCarte.AS,CouleurCarte.PIQUE),
         Carte(NomCarte.DIX, CouleurCarte.CARREAU),
-<<<<<<< HEAD
         Carte(NomCarte.NEUF, CouleurCarte.CARREAU),
         Carte(NomCarte.HUIT,CouleurCarte.CARREAU),
         Carte(NomCarte.SEPT, CouleurCarte.CARREAU),
@@ -42,17 +38,11 @@ fun createJeu32Cartes() : List<Carte> {
         Carte(NomCarte.VALET, CouleurCarte.TREFLE),
         Carte(NomCarte.DAME, CouleurCarte.TREFLE),
         Carte(NomCarte.ROI,CouleurCarte.TREFLE),
-        Carte(NomCarte.AS,CouleurCarte.TREFLE),
+        Carte(NomCarte.AS,CouleurCarte.TREFLE)
 
     )
 }
 
-
-=======
-    )
-}
-
-// TODO Création d'un paquet de 52 cartes à implémenter (de 2 à AS)
 fun createJeu52Cartes() : List<Carte>
 {
     return listOf(
@@ -108,7 +98,6 @@ fun createJeu52Cartes() : List<Carte>
         Carte(NomCarte.VALET, CouleurCarte.CARREAU),
         Carte(NomCarte.DAME, CouleurCarte.CARREAU),
         Carte(NomCarte.ROI, CouleurCarte.CARREAU),
-        Carte(NomCarte.AS, CouleurCarte.CARREAU),
+        Carte(NomCarte.AS, CouleurCarte.CARREAU)
         )
 }
->>>>>>> 48fdd98b668b21bd85f8f081a1e2bdc1832b1428
