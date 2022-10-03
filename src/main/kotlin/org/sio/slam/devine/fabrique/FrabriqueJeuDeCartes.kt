@@ -88,7 +88,6 @@ fun createJeu52Cartes() : List<Carte>
         Carte(NomCarte.DEUX, CouleurCarte.CARREAU),
         Carte(NomCarte.TROIS, CouleurCarte.CARREAU),
         Carte(NomCarte.QUATRE, CouleurCarte.CARREAU),
-        Carte(NomCarte.QUATRE, CouleurCarte.CARREAU),
         Carte(NomCarte.CINQ, CouleurCarte.CARREAU),
         Carte(NomCarte.SIX, CouleurCarte.CARREAU),
         Carte(NomCarte.SEPT, CouleurCarte.CARREAU),
