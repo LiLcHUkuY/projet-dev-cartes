@@ -8,6 +8,8 @@ import org.sio.slam.devine.core.Carte
 import org.sio.slam.devine.core.Paquet
 import org.sio.slam.devine.enum.CouleurCarte
 import org.sio.slam.devine.enum.NomCarte
+import org.sio.slam.devine.fabrique.createJeu32Cartes
+import org.sio.slam.devine.fabrique.createJeu52Cartes
 
 internal class PaquetTest {
 
@@ -42,14 +44,14 @@ internal class PaquetTest {
 
     @Test
     fun fabriqueDe32Cartes() {
-        // TODO test fabriqueDe32Cartes à implémenter
-        
-
+        val test = Paquet(createJeu32Cartes())
+        assertEquals(32, test.cartes.size)
     }
 
     @Test
     fun fabriqueDe52Cartes() {
-        // TODO test fabriqueDe52Cartes à implémenter :
-        fail("fabriqueDe52Cartes à implémenter")
+        val test = Paquet(createJeu52Cartes())
+        assertEquals(52 , test.cartes.size)
+        //fail("fabriqueDe52Cartes à implémenter")
     }
 }
