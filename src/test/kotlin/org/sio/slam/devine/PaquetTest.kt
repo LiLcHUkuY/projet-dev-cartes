@@ -31,13 +31,20 @@ internal class PaquetTest {
 
     @Test
     fun testGetCartes() {
-        fail("test accesseur get cartes à implémenter")
+        val paquet2Cartes = Paquet(listOf(
+            Carte(NomCarte.VALET, CouleurCarte.COEUR),
+            Carte(NomCarte.DIX, CouleurCarte.TREFLE),
+        ))
+        var test: List<Carte> = paquet2Cartes.cartes
+        assertEquals(NomCarte.VALET, test[0].nom)
+        assertEquals(CouleurCarte.COEUR, test[0].couleur)
     }
 
     @Test
     fun fabriqueDe32Cartes() {
-        // TODO test fabriqueDe32Cartes à implémenter :
-        fail("fabriqueDe32Cartes à implémenter")
+        // TODO test fabriqueDe32Cartes à implémenter
+        
+
     }
 
     @Test
