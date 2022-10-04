@@ -57,7 +57,7 @@ class CarteTest {
          val roiDeCoeur : Carte = Carte(NomCarte.ROI, CouleurCarte.COEUR)
 
          // test avec compareTo
-         assertTrue(asDeCoeur.compareTo(roiDeCoeur) > 0 )
+         assertTrue(asDeCoeur.compareTo(roiDeCoeur) > 0 )   
 
          // Finalement, si les objets sont *comparables*
          // alors les opérateurs binaires de comparaisons sont applicables
