@@ -21,6 +21,8 @@ class Carte constructor(
      */
     val valeur: Int
         get() = this.nom.points  // DEUX => 2, TROIS => 3, ... , AS => 14
+    val valCouleur: Int
+        get() = this.couleur.points
 
     /**
      * Les cartes se comparent en fonction de leur valeur et de leur couleur
@@ -28,6 +30,8 @@ class Carte constructor(
      * @see <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/compare-to.html">compareTo API</a>
      */
     override fun compareTo(other: Carte): Int {
+        if (this.valeur.compareTo(other.valeur) == 0)
+            return this.valCouleur.compareTo(other.valCouleur)
         // TODO prendre aussi en compte la couleur
         // (en déterminant une hiérarchie entre couleurs)
         // par exemple un ROI de Coeur est-il plus grand ou plus petit qu'un ROI de Pique ?
