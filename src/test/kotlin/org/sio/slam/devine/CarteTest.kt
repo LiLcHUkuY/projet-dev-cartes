@@ -70,7 +70,10 @@ class CarteTest {
     fun compareCartesDeCouleurDifferenteMaisDeMemeValeur()  {
         // TODO test à implémenter : Attention dépend de la hiérarchie des couleurs retenue
         //   prévoir plusieurs méthodes (plusieurs cas)
-        fail("Relation d'ordre total à tester ici Vous devrez mettre au point la méthode compareTo !")
+        //fail("Relation d'ordre total à tester ici Vous devrez mettre au point la méthode compareTo !")
+        val roiDePique: Carte = Carte(NomCarte.ROI, CouleurCarte.PIQUE)
+        val roiDeCoeur: Carte = Carte(NomCarte.ROI, CouleurCarte.COEUR)
+        assertTrue(roiDePique.compareTo(roiDeCoeur) < 0)
     }
 
     // autres cas de test

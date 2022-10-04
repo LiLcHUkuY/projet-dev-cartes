@@ -5,8 +5,8 @@ import java.lang.IllegalArgumentException
 /**
  * Implémentation à minima
  */
-enum class CouleurCarte {
-    TREFLE, PIQUE, CARREAU, COEUR
+enum class CouleurCarte(val points: Int) {
+    TREFLE(1), PIQUE(2), CARREAU(3), COEUR(4)
 }
 
 /**
