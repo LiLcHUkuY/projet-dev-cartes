@@ -48,7 +48,7 @@ class Carte constructor(
         result = 31 * result + couleur.hashCode()
         return result
     }
-
+//oui
     override fun toString(): String {
         return "Carte ${nom.name} de ${couleur.name} (valeur : ${valeur})"
     }
