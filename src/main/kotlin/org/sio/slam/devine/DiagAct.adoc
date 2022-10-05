@@ -1,0 +1,18 @@
+[plantuml]
+-----
+@startuml
+start
+:demander quel jeu de cartes
+demander si activation aide assistance
+intialisatio-n du jeu;
+:demander nom de carte
+demander couleur de carte;
+if ( ?) equals (ok) then
+  :action;
+else
+  : ? ;
+endif
+:autre action;
+stop
+@enduml
+-----
