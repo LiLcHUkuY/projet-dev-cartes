@@ -1,7 +1,7 @@
 [plantuml]
 -----
 @startuml
-
+!pragma useVerticalIf on
 title Diagramme d'activité 1
 
 start
@@ -12,15 +12,19 @@ start
 :Donner une couleur;
 
 if (Définition couleur et nom) then (Pas Bon)
-    :Fin de la partie;
-    stop
-else (Bon)
-    if (Bonne carte) then (oui)
-        :Fin de la partie par victoire;
-        stop
-    else ( non)
-        :Fin de la partie par défaite;
+    :Erreur et affichage de
+          la carte donnée;
 
+else (Bon)
+    if (Carte devinée) then (oui)
+        :affichage de la carte
+                à deviner;
+    else (non)
+endif
+endif
+:Affichage de la carte
+            a deviner;
+:fin de la partie;
 stop
 @enduml
 -----
