@@ -17,6 +17,12 @@ fun main(args: Array<String>) {
     println("Souhaitez-vous avoir de l'aide durant la partie ? oui ou non")
     val wantAide : String = readLine() + ""
     aide = wantAide == "oui"
+    if (wantAide == "oui") {
+        println("L'aide est activée")
+    }
+    else {
+        println("L'aide est désactivée")
+    }
 
 
     // TODO (A) demander au joueur avec quel jeu de cartes 32 ou 52 il souhaite jouer
@@ -37,56 +43,56 @@ fun main(args: Array<String>) {
     println(" ==== Instanciation du jeu, début de la partie. ====")
     val jeu = Jeu(aide, paquetDeCartes)
 
-    println("Entrez un nom de carte dans le jeu (exemples : Roi, sept, six, As...) :")
-    // TODO (optionnel) permettre de saisir un chiffre au lieu d'une chaine : 7 au lieu de Sept...
-    val nomCarteUserStr: String = readLine() + ""
-    val nomCarteUser: NomCarte? = getNomCarteFromString(nomCarteUserStr.trim().uppercase())
+    do{
+        var repeat = 0
+        println("Entrez un nom de carte dans le jeu (exemples : Roi, sept, six, As...) :")
+        // TODO (optionnel) permettre de saisir un chiffre au lieu d'une chaine : 7 au lieu de Sept...
+        val nomCarteUserStr: String = readLine() + ""
+        val nomCarteUser: NomCarte? = getNomCarteFromString(nomCarteUserStr.trim().uppercase())
 
-    println("Entrez un nom de \"couleur\" de carte parmi : Pique, Trefle, Coeur, Carreau : ")
-    val couleurCarteUserStr: String = readLine() + ""
-    val couleurCarteUser: CouleurCarte? = getCouleurCarteFromString(couleurCarteUserStr.trim().uppercase())
+        println("Entrez un nom de \"couleur\" de carte parmi : Pique, Trefle, Coeur, Carreau : ")
+        val couleurCarteUserStr: String = readLine() + ""
+        val couleurCarteUser: CouleurCarte? = getCouleurCarteFromString(couleurCarteUserStr.trim().uppercase())
 
 
-    if (nomCarteUser != null && couleurCarteUser != null) {
-        // prise en compte de la carte du joueur
-        val carteDuJoueur: Carte = Carte(nomCarteUser, couleurCarteUser)
+        if (nomCarteUser != null && couleurCarteUser != null) {
+            // prise en compte de la carte du joueur
+            val carteDuJoueur: Carte = Carte(nomCarteUser, couleurCarteUser)
 
-        //val carteADeviner: Carte = Carte()
+            //val carteADeviner: Carte = Carte()
 
-        if (jeu.isMatch(carteDuJoueur)) {
-            println("Bravo, vous avez trouvé la bonne carte !")
-        } else {
-            println("Ce n'est pas la bonne carte !")
-            println("votre proposition  : $carteDuJoueur")
-            if (aide) {
-                // TODO: (A) si l'aide est activée, alors dire si la carte proposée est
-                //  plus petite ou plus grande que la carte à deviner
-                jeu.help(carteDuJoueur)
+            if (jeu.isMatch(carteDuJoueur)) {
+                println("Bravo, vous avez trouvé la bonne carte !")
+                repeat = 1
+            } else {
+                println("Ce n'est pas la bonne carte !")
+                println("votre proposition  : $carteDuJoueur")
+                if (aide) {
+                    // TODO: (A) si l'aide est activée, alors dire si la carte proposée est
+                    //  plus petite ou plus grande que la carte à deviner
+                    jeu.help(carteDuJoueur)
+                }
+                println("Souhaitez-vous continuer la partie ? oui ou non")
+                var continuer: String = readLine() + ""
+                repeat = if (continuer == "oui") {
+                    0
+                } else {
+                    1
+                }
             }
-        }
-    } else {
-        // utilisateur a mal renseigné sa carte
-        val nomCarte = if (nomCarteUserStr == "") "?" else nomCarteUserStr
-        val couleurCarte = if (couleurCarteUserStr == "") "?" else couleurCarteUserStr
+        } else {
+            // utilisateur a mal renseigné sa carte
+            val nomCarte = if (nomCarteUserStr == "") "?" else nomCarteUserStr
+            val couleurCarte = if (couleurCarteUserStr == "") "?" else couleurCarteUserStr
 
-        println("Désolé, mauvaise définition de carte ! (${nomCarte} de ${couleurCarte})")
-    }
+            println("Désolé, mauvaise définition de carte ! (${nomCarte} de ${couleurCarte})")
+        }
+    }while (repeat != 1)
+
+
 
     // TODO (A) permettre au joueur de retenter une autre carte (sans relancer le jeu) ou d'abandonner la partie
-    /*val carteJoueur: Carte = Carte(nomCarteUser, couleurCarteUser)
-    while (carteJoueur != jeu.carteADeviner)
-    {
-        println("Souhaitez-vous continuer à jouer ? oui ou non")
-        val reponse = readLine() + ""
-        if (reponse == "oui")
-        {
-            continue
-        }
-        else
-        {
-            break
-        }
-    }*/
+
 
     //println(" ==== Fin prématurée de la partie ====")
 

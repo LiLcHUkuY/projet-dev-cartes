@@ -22,8 +22,6 @@ else (Bon)
     else (non)
 endif
 endif
-:Affichage de la carte
-            a deviner;
 :fin de la partie;
 stop
 @enduml
