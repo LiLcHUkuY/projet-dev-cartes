@@ -1,18 +1,26 @@
 [plantuml]
 -----
 @startuml
+
+title Fonction main
+
 start
-:demander quel jeu de cartes
-demander si activation aide assistance
-intialisatio-n du jeu;
-:demander nom de carte
-demander couleur de carte;
-if ( ?) equals (ok) then
-  :action;
-else
-  : ? ;
-endif
-:autre action;
+
+:Création du paquet;
+:Instanciation du jeu;
+:Donner un nom;
+:Donner une couleur;
+
+if (Définition couleur et nom) then (Pas Bon)
+    :Fin de la partie;
+    stop
+else (Bon)
+    if (Bonne carte) then (oui)
+        :Fin de la partie par victoire;
+        stop
+    else ( non)
+        :Fin de la partie par défaite;
+
 stop
 @enduml
 -----
