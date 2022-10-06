@@ -61,6 +61,7 @@ fun main(args: Array<String>) {
             if (aide) {
                 // TODO: (A) si l'aide est activée, alors dire si la carte proposée est
                 //  plus petite ou plus grande que la carte à deviner
+                jeu.help(carteDuJoueur)
             }
         }
     } else {
