@@ -2,7 +2,7 @@
 -----
 @startuml
 
-title Fonction main
+title Diagramme d'activité 1
 
 start
 

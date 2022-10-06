@@ -58,9 +58,10 @@ fun main(args: Array<String>) {
         } else {
             println("Ce n'est pas la bonne carte !")
             println("votre proposition  : $carteDuJoueur")
-            if (aide) {
+            if (aide && jeu.isMatch(carteDuJoueur)!=true) {
                 // TODO: (A) si l'aide est activée, alors dire si la carte proposée est
                 //  plus petite ou plus grande que la carte à deviner
+                jeu.help(carteDuJoueur)
             }
         }
     } else {
