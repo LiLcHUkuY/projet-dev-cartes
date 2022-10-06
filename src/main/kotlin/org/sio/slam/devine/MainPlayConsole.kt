@@ -24,6 +24,8 @@ fun main(args: Array<String>) {
         println("L'aide est désactivée")
     }
 
+    var nbEssais = 0
+
 
     // TODO (A) demander au joueur avec quel jeu de cartes 32 ou 52 il souhaite jouer
     val paquetDeCartes: Paquet
@@ -45,6 +47,7 @@ fun main(args: Array<String>) {
 
     do{
         var repeat = 0
+        nbEssais++
         println("Entrez un nom de carte dans le jeu (exemples : Roi, sept, six, As...) :")
         // TODO (optionnel) permettre de saisir un chiffre au lieu d'une chaine : 7 au lieu de Sept...
         val nomCarteUserStr: String = readLine() + ""
@@ -62,7 +65,7 @@ fun main(args: Array<String>) {
             //val carteADeviner: Carte = Carte()
 
             if (jeu.isMatch(carteDuJoueur)) {
-                println("Bravo, vous avez trouvé la bonne carte !")
+                println("Bravo, vous avez trouvé la bonne carte en $nbEssais essais!")
                 repeat = 1
             } else {
                 println("Ce n'est pas la bonne carte !")
@@ -88,13 +91,6 @@ fun main(args: Array<String>) {
             println("Désolé, mauvaise définition de carte ! (${nomCarte} de ${couleurCarte})")
         }
     }while (repeat != 1)
-
-
-
-    // TODO (A) permettre au joueur de retenter une autre carte (sans relancer le jeu) ou d'abandonner la partie
-
-
-    //println(" ==== Fin prématurée de la partie ====")
 
     // TODO (A) Présenter à la fin la carte à deviner
     println("La carte à deviner était le ${jeu.carteADeviner}")

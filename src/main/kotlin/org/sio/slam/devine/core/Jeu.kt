@@ -34,8 +34,15 @@ class Jeu(val avecAide: Boolean, val paquet: Paquet, paramCarteADeviner: Carte? 
     fun help (carteDuJoueur : Carte): Unit{
         if(carteDuJoueur.valeur < carteADeviner.valeur)
             println("Votre carte est plus petite que la carte à deviner !")
-        else
+        else if(carteDuJoueur.valeur > carteADeviner.valeur)
             println("Votre carte est plus grande que la carte à deviner")
+        else
+            println("Votre carte est de la bonne valeur")
+
+        if (carteDuJoueur.couleur != carteADeviner.couleur)
+            println("Votre carte n'est pas de la bonne couleur")
+        else
+            println("Votre carte est de la bonne couleur")
     }
 
 }
