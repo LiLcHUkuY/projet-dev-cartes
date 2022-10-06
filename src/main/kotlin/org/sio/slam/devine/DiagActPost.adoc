@@ -1,0 +1,31 @@
+[plantuml]
+-----
+@startuml
+
+title Diagramme d'activité 1
+
+start
+
+:Création du paquet;
+:Instanciation du jeu;
+label retour
+:Donner un nom;
+:Donner une couleur;
+
+if (Définition couleur et nom) then (Pas Bon)
+    :Carte inexistante;
+    goto retour
+
+else (Bon)
+    if (Bonne carte) then (oui)
+        :Fin de la partie par victoire;
+    else (non)
+        if (Recommencer ?) then (non)
+            :Fin de la partie par défaite;
+        else (oui)
+            :L'aide;
+            goto retour
+stop
+
+@enduml
+-----
