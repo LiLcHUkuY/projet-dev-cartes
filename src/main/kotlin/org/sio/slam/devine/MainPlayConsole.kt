@@ -72,6 +72,21 @@ fun main(args: Array<String>) {
     }
 
     // TODO (A) permettre au joueur de retenter une autre carte (sans relancer le jeu) ou d'abandonner la partie
+    /*val carteJoueur: Carte = Carte(nomCarteUser, couleurCarteUser)
+    while (carteJoueur != jeu.carteADeviner)
+    {
+        println("Souhaitez-vous continuer à jouer ? oui ou non")
+        val reponse = readLine() + ""
+        if (reponse == "oui")
+        {
+            continue
+        }
+        else
+        {
+            break
+        }
+    }*/
+
     //println(" ==== Fin prématurée de la partie ====")
 
     // TODO (A) Présenter à la fin la carte à deviner
