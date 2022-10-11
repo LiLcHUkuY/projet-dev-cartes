@@ -13,7 +13,7 @@
 
 == Thème
 
-Développer une logique de jeu mettant en oeuvre de la conception objet et des tests unitaires.
+Développer une logique de jeu mettant en œuvre de la conception objet et des tests unitaires.
 
 == Objectif
 
@@ -24,17 +24,17 @@ Développer une logique de jeu mettant en oeuvre de la conception objet et des t
 * Analyse des actions du joueur (fonction du nombre de cartes, aides à la décision)
 
 == Challenge 1 : Prises en mains et tests unitaires.
-Tout d'abord, nous faisons les différents tests afin de faires les différents test unitaires
+Tout d'abord, nous faisons les différents tests afin de faire les différents tests unitaires
 
 
-Ensuite, nous avons pris en main le projet sur nos IDE et de surcroit créée les
-différentes fabriques de paquets cartes. D'abord celle de 32 cartes et ensuite le paquet de 52 cartes.
+Ensuite, nous avons pris en main le projet sur nos IDE et de surcroit créé les
+différentes fabriques de paquets de cartes. D'abord celle du paquet de 32 cartes et ensuite celle du paquet de 52 cartes.
 
-Vous trouverez ci-dessous les codes qui ont permis à créer ces différents jeux de cartes :
+Vous trouverez ci-dessous les codes qui ont permis de créer ces différents jeux de cartes :
 
 
 
-=== fabrique paquet de 32 cartes :
+=== Fabrique paquet de 32 cartes :
 ----
 /*** Création d'un paquet de 32 cartes ***/
 fun createJeu32Cartes() : List<Carte>
@@ -53,7 +53,7 @@ else -> listeCartes.add(Carte(nom, couleur))
 return listeCartes
 }
 ----
-=== Fabriques paquet de 52 cartes :
+=== Fabrique paquet de 52 cartes :
 
 -----
 /*** Création d'un paquet de 52 cartes ***/
@@ -73,11 +73,11 @@ fun createJeu52Cartes() : List<Carte>
 
 == Challenge 2 : représentation de l'algorithme initial de la fonction main.
 
-Pour ce challenge, le travail demander était de faire l'implémentation des différents tests
-afin de créer différentes fonctions du jeu de cartes. Celles-ci  doit ; donnée une aide au joueur et l'aider à trouver la carte proposée par le jeu en leur indiquant
-si la valeur est supérieur ou inferieur à la propositions du joueur ou si la couleur est la bonne.
+Pour ce challenge, le travail demandé était de faire l'implémentation des différents tests
+afin de créer différentes fonctions du jeu de cartes. Celles-ci  doivent ; donner une aide au joueur et l'aider à trouver la carte proposée par le jeu en lui indiquant
+si la valeur est supérieure ou inférieure à la proposition du joueur ou si la couleur est la bonne.
 Ensuite grâce à des diagrammes, expliquer le fonctionnement du
-programme avant et apres modifications.
+programme avant et après modifications.
 
 === Diagrammes avant modifications
 
@@ -143,19 +143,19 @@ stop
 @enduml
 ----
 
-= Challenge 3 : Rebattre les cartes
+=== Challenge 3 : Rebattre les cartes
 
-Le concepte vise à rebattre le paquet de cartes qui lui est initialement dans un ordre précis.
-Pour ceux nous utilisons la methode Shuffle qui permettra au programme de choisir une carte au hasard dans le paquet.
+Le concept vise à rebattre le paquet de cartes qui est initialement dans un ordre précis.
+Pour cela nous utilisons la methode Shuffle qui permettra au programme de choisir une carte au hasard dans le paquet.
 
 ----
     fun rebattre() {
         return shuffle(cartes)
     }
 ----
-= Challenge 4
+=== Challenge 4
 
-Ce challenge consiste a aider le joueur a élaborer une strategie pour mieux trouver la carte a deviner du programme
+Ce challenge consiste à aider le joueur à élaborer une stratégie pour mieux trouver la carte à deviner du programme.
 
 
 
