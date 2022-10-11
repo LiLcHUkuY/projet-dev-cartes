@@ -1,0 +1,191 @@
+= DevineLaCarte
+:author: Tonino Falzone Alvarez, Benjamin Nauguet, Damien Caye et Yoan Delbois
+:docdate: 2022-10-11
+:asciidoctor-version:1.1
+:description: Projet pédagogique d'initiation à Kotlin
+:icons: font
+:listing-caption: Listing
+:toc-title: Table des matières
+:toc: left
+:toclevels: 4
+
+//:source-highlighter: coderay
+
+== Thème
+
+Développer une logique de jeu mettant en oeuvre de la conception objet et des tests unitaires.
+
+== Objectif
+
+* Conception et mise au point d'une logique applicative avec Kotlin et JUnit
+
+* Structure de données, recherche d'un élément dans une liste
+
+* Analyse des actions du joueur (fonction du nombre de cartes, aides à la décision)
+
+== Challenge 1 : Prises en mains et tests unitaires.
+Tout d'abord, nous faisons les différents tests afin de faires les différents test unitaires
+
+
+Ensuite, nous avons pris en main le projet sur nos IDE et de surcroit créée les
+différentes fabriques de paquets cartes. D'abord celle de 32 cartes et ensuite le paquet de 52 cartes.
+
+Vous trouverez ci-dessous les codes qui ont permis à créer ces différents jeux de cartes :
+
+
+
+=== fabrique paquet de 32 cartes :
+----
+/*** Création d'un paquet de 32 cartes ***/
+fun createJeu32Cartes() : List<Carte>
+{
+var listeCartes: MutableList<Carte> = mutableListOf()
+for (couleur in CouleurCarte.values())
+{
+for (nom in NomCarte.values())
+{
+when (nom.toString()) {
+"DEUX", "TROIS", "QUATRE", "CINQ", "SIX" -> continue
+else -> listeCartes.add(Carte(nom, couleur))
+}
+}
+}
+return listeCartes
+}
+----
+=== Fabriques paquet de 52 cartes :
+
+-----
+/*** Création d'un paquet de 52 cartes ***/
+fun createJeu52Cartes() : List<Carte>
+{
+    var listeCartes: MutableList<Carte> = mutableListOf()
+    for (couleur in CouleurCarte.values())
+    {
+        for (nom in NomCarte.values())
+        {
+            listeCartes.add(Carte(nom, couleur))
+        }
+    }
+    return listeCartes
+}
+-----
+
+== Challenge 2 : représentation de l'algorithme initial de la fonction main.
+
+Pour ce challenge, le travail demander était de faire l'implémentation des différents tests
+afin de créer différentes fonctions du jeu de cartes. Celles-ci  doit ; donnée une aide au joueur et l'aider à trouver la carte proposée par le jeu en leur indiquant
+si la valeur est supérieur ou inferieur à la propositions du joueur ou si la couleur est la bonne.
+Ensuite grâce à des diagrammes, expliquer le fonctionnement du
+programme avant et apres modifications.
+
+=== Diagrammes avant modifications
+
+------
+@startuml
+!pragma useVerticalIf on
+title Diagramme d'activité 1
+
+start
+
+:Création du paquet;
+:Instanciation du jeu;
+:Donner un nom;
+:Donner une couleur;
+
+if (Définition couleur et nom) then (Pas Bon)
+    :Erreur et affichage de
+          la carte donnée;
+
+else (Bon)
+    if (Carte devinée) then (oui)
+        :affichage de la carte
+                à deviner;
+    else (non)
+endif
+endif
+:fin de la partie;
+stop
+@enduml
+------
+
+=== Diagrammes Post modifications
+----
+@startuml
+!pragma useVerticalIf on
+title Diagramme d'activité 2
+
+start
+
+:Activation ou désactivation de l'aide;
+:Création du paquet;
+:Instanciation du jeu;
+:Donner un nom;
+:Donner une couleur;
+
+repeat :Définition couleur et nom;
+if (Bonne carte) then (Oui)
+:Affichage de la carte à deviner;
+:Affichage de la statégie;
+break
+else (Non)
+if (Aide) then (Oui)
+:Affichage de l'aide;
+else (Non)
+:Pas d'affichage d'aide;
+endif
+endif
+repeat while (Recommencer) is (Oui)
+
+:Fin de la partie;
+
+stop
+@enduml
+----
+
+= Challenge 3 : Rebattre les cartes
+
+Le concepte vise à rebattre le paquet de cartes qui lui est initialement dans un ordre précis.
+Pour ceux nous utilisons la methode Shuffle qui permettra au programme de choisir une carte au hasard dans le paquet.
+
+----
+    fun rebattre() {
+        return shuffle(cartes)
+    }
+----
+= Challenge 4
+
+Ce challenge consiste a aider le joueur a élaborer une strategie pour mieux trouver la carte a deviner du programme
+
+
+
+
+-----
+fun strategiePartie(nbEssais : Int): String {
+            if(avecAide){
+                val iaTry : Double = log2(paquet.cartes.size.toDouble())
+                if(nbEssais.toDouble() >= iaTry1.80){
+                    return "Stratégie dichotomique peu précise, vous avez fais $nbEssais essais"
+                }
+                else if (nbEssais.toDouble() >= iaTry +1 && nbEssais.toDouble() < iaTry 1.80){
+                    return "Stratégie dichotomique assez précise, vous avez fais $nbEssais essais"
+                }
+                else if (nbEssais == iaTry.toInt()) {
+                    return "Stratégie dichotomique très précise, vous avez fais $nbEssais essais"
+                }
+                else{
+                    return "Peu de stratégie sûrement de la chance, vous avez fais $nbEssais essais"
+                }
+            }
+            else{
+                val pourcentChance : Double = (nbEssais.toDouble() / paquet.cartes.size.toDouble())*100.0
+                return if (nbEssais / paquet.cartes.size <= 0.25){
+                    "Stratégie linéaire, vous aviez ${pourcentChance.toInt()}% de chance de trouver, vous avez $nbEssais essais"
+                }
+                else{
+                    "Stratégie linéaire, vous aviez ${pourcentChance.toInt()}% de chance de trouver, vous avez $nbEssais essais"
+                }
+            }
+            return "Erreur"
+    }
+-----
