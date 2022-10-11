@@ -80,10 +80,8 @@ fun main(args: Array<String>) {
                 var continuer: String = readLine() + ""
                if (continuer == "oui") {
                     repeat =  0
-                    continuar = true
                 } else {
                     repeat = 1
-                    continuar = false
                 }
             }
         } else {
@@ -99,7 +97,7 @@ fun main(args: Array<String>) {
     println("La carte à deviner était le ${jeu.carteADeviner}")
 
     // TODO (challenge-4) la stratégie de jeu est à implémenter... à faire lorsque les autres TODOs auront été réalisés
-    jeu.strategiePartie(nbEssais, continuar)
+    println(jeu.strategiePartie(nbEssais))
 
     println(" ==== Fin de la partie. ====")
 }

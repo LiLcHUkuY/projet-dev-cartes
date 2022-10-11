@@ -29,8 +29,7 @@ class Jeu(val avecAide: Boolean, val paquet: Paquet, paramCarteADeviner: Carte? 
      *  a-t-il trouvé la carte en un nombre de fois "convenable" ou "inconvenable",
      *  a-t-il eu de la chance ?
      */
-    fun strategiePartie(nbEssais : Int , abandonner: Boolean): String {
-        if(!abandonner){
+    fun strategiePartie(nbEssais : Int): String {
             if(avecAide){
                 val iaTry : Double = log2(paquet.cartes.size.toDouble())
                 if(nbEssais.toDouble() >= iaTry*1.80){
@@ -56,10 +55,6 @@ class Jeu(val avecAide: Boolean, val paquet: Paquet, paramCarteADeviner: Carte? 
                 }
             }
             return "Erreur"
-        }
-        else{
-            return "Pas de stratégie"
-        }
     }
 
     fun help (carteDuJoueur : Carte): Unit{
