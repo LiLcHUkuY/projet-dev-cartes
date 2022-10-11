@@ -25,7 +25,7 @@ fun main(args: Array<String>) {
     }
 
     var nbEssais = 0
-    val continuar = false
+    var continuar = false
 
 
     // TODO (A) demander au joueur avec quel jeu de cartes 32 ou 52 il souhaite jouer
@@ -78,10 +78,12 @@ fun main(args: Array<String>) {
                 }
                 println("Souhaitez-vous continuer la partie ? oui ou non")
                 var continuer: String = readLine() + ""
-                repeat = if (continuer == "oui") {
-                    0
+               if (continuer == "oui") {
+                    repeat =  0
+                    continuar = true
                 } else {
-                    1
+                    repeat = 1
+                    continuar = false
                 }
             }
         } else {
