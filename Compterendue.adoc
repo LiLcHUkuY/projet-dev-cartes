@@ -157,8 +157,14 @@ Pour cela nous utilisons la methode Shuffle qui permettra au programme de choisi
 
 Ce challenge consiste à aider le joueur à élaborer une stratégie pour mieux trouver la carte à deviner du programme.
 
+Nous avons pour cela pu classifier comme demander les differentes stratégie, que nous avons mis en place.
+La stratégie dichotomique et la stratégie linéaire.
+Nous avons pu différencier les deux méthode simplement avec la fonction aide car en effet, l'aide donne une indication sur notre carte et ainsi nous aide a résonner plus facilement.
+Nous avons donc utiliser l'aide pour mettre en place la reconnition de la stratégie dichotomique.
 
+La stratégie linéaire est quand-a-elle reconnaissable puisque elle consiste juste à essayer toutes les combinaison possible.
 
+Pour trier les résultats nous avons choisi des valeurs arbitraires mais cohérentes afin de renvoyer différents résultats notamment en les comparants avec des résultats issu de moyenne (Fonction log2).
 
 -----
 fun strategiePartie(nbEssais : Int): String {
