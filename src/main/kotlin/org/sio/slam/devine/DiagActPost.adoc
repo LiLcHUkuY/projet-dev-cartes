@@ -2,30 +2,32 @@
 -----
 @startuml
 !pragma useVerticalIf on
-title Diagramme d'activité 1
+title Diagramme d'activité 2
 
 start
 
+:Activation ou désactivation de l'aide;
 :Création du paquet;
 :Instanciation du jeu;
-label retour
 :Donner un nom;
 :Donner une couleur;
 
-if (Définition couleur et nom) then (Pas Bon)
-    :Carte inexistante;
-    goto retour
+repeat :Définition couleur et nom;
+if (Bonne carte) then (Oui)
+    :Affichage de la carte à deviner;
+    :Affichage de la statégie;
+    break
+else (Non)
+    if (Aide) then (Oui)
+        :Affichage de l'aide;
+    else (Non)
+        :Pas d'affichage d'aide;
+    endif
+endif
+repeat while (Recommencer) is (Oui)
 
-else (Bon)
-    if (Bonne carte) then (oui)
-        :Fin de la partie par victoire;
-    else (non)
-        if (Recommencer ?) then (non)
-            :Fin de la partie par défaite;
-        else (oui)
-            :L'aide;
-            goto retour
+:Fin de la partie;
+
 stop
-
 @enduml
 -----
