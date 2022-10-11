@@ -1,7 +1,7 @@
 [plantuml]
 -----
 @startuml
-
+!pragma useVerticalIf on
 title Diagramme d'activité 1
 
 start

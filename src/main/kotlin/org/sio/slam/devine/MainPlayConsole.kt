@@ -25,6 +25,7 @@ fun main(args: Array<String>) {
     }
 
     var nbEssais = 0
+    val continuar = false
 
 
     // TODO (A) demander au joueur avec quel jeu de cartes 32 ou 52 il souhaite jouer
@@ -96,7 +97,7 @@ fun main(args: Array<String>) {
     println("La carte à deviner était le ${jeu.carteADeviner}")
 
     // TODO (challenge-4) la stratégie de jeu est à implémenter... à faire lorsque les autres TODOs auront été réalisés
-    //println("Votre stratégie de jeu : ${jeu.strategiePartie()} ")
+    jeu.strategiePartie(nbEssais, continuar)
 
     println(" ==== Fin de la partie. ====")
 }

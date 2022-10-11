@@ -1,5 +1,7 @@
 package org.sio.slam.devine.core
 
+import kotlin.math.log2
+
 class Jeu(val avecAide: Boolean, val paquet: Paquet, paramCarteADeviner: Carte? = null) {
     val carteADeviner: Carte
         // le getter par défaut, inutile de le redéclarer (juste pour la démonstration)
@@ -27,8 +29,37 @@ class Jeu(val avecAide: Boolean, val paquet: Paquet, paramCarteADeviner: Carte? 
      *  a-t-il trouvé la carte en un nombre de fois "convenable" ou "inconvenable",
      *  a-t-il eu de la chance ?
      */
-    fun strategiePartie(): String {
-        return "TODO stratégie de la partie"
+    fun strategiePartie(nbEssais : Int , abandonner: Boolean): String {
+        if(!abandonner){
+            if(avecAide){
+                val iaTry : Double = log2(paquet.cartes.size.toDouble())
+                if(nbEssais.toDouble() >= iaTry*1.80){
+                    return "Stratégie dichotomique peu précise, vous avez fais $nbEssais essais"
+                }
+                else if (nbEssais.toDouble() >= iaTry +1 && nbEssais.toDouble() < iaTry * 1.80){
+                    return "Stratégie dichotomique assez précise, vous avez fais $nbEssais essais"
+                }
+                else if (nbEssais == iaTry.toInt()) {
+                    return "Stratégie dichotomique très précise, vous avez fais $nbEssais essais"
+                }
+                else{
+                    return "Peu de stratégie sûrement de la chance, vous avez fais $nbEssais essais"
+                }
+            }
+            else{
+                val pourcentChance : Double = (nbEssais.toDouble() / paquet.cartes.size.toDouble())*100.0
+                return if (nbEssais / paquet.cartes.size <= 0.25){
+                    "Stratégie linéaire, vous aviez ${pourcentChance.toInt()}% de chance de trouver, vous avez $nbEssais essais"
+                }
+                else{
+                    "Stratégie linéaire, vous aviez ${pourcentChance.toInt()}% de chance de trouver, vous avez $nbEssais essais"
+                }
+            }
+            return "Erreur"
+        }
+        else{
+            return "Pas de stratégie"
+        }
     }
 
     fun help (carteDuJoueur : Carte): Unit{
