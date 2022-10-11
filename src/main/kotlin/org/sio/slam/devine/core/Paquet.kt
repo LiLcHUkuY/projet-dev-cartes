@@ -1,6 +1,7 @@
 package org.sio.slam.devine.core
 
 import org.sio.slam.devine.fabrique.createJeu32Cartes
+import java.util.Collections.shuffle
 import kotlin.random.Random
 
 class Paquet constructor(var cartes: List<Carte> = ArrayList<Carte>()) {
@@ -29,5 +30,9 @@ class Paquet constructor(var cartes: List<Carte> = ArrayList<Carte>()) {
     fun getCarteADeviner(): Carte {
         // TODO implémenter une solution moins prédictive !!
         return this.cartes[Random.nextInt(0, cartes.size - 1)]
+    }
+
+    fun rebattre() {
+        return shuffle(cartes)
     }
 }
